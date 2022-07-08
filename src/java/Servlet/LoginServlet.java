@@ -4,9 +4,10 @@
  */
 package Servlet;
 
-import Config.DBConnection;
+import Controller.UserController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author rafih
  */
-public class IndexServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,21 +33,19 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            DBConnection con = new DBConnection();
-            System.out.println(con.open());
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession(true);
+            if (session.getAttribute("isLoggedIn") != null) {
+                response.sendRedirect("Home");
+                return;
+            }
             
-            HttpSession session = request.getSession();
-            if (session.getAttribute("isLoggedIn") == null) {
-                response.sendRedirect("Login");
-            }
-            else {
-                RequestDispatcher dispatch = request.getRequestDispatcher("/views/index.jsp");
-                dispatch.forward(request, response);
-            }
+            RequestDispatcher dispatch = request.getRequestDispatcher("/views/login.jsp");   
+            dispatch.forward(request, response);
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -73,7 +72,44 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+            UserController uc = new UserController();
+            ResultSet rs = uc.getByUsername(username);
+
+            HttpSession session = request.getSession(true);
+            session.removeAttribute("errors");
+            
+            if (rs.isBeforeFirst()) {
+                rs.first();
+
+                String dataPassword = rs.getString("password");
+                Boolean isValid = password.equals(dataPassword);
+                
+                if(!isValid) {
+                    session.setAttribute("errors", "Username or password is invalid!");
+                    response.sendRedirect("Login");    
+                    return;
+                }
+                
+                String name = rs.getString("name");
+                session.setAttribute("username", username);
+                session.setAttribute("name", name);
+                session.setAttribute("isLoggedIn", true);
+                session.setAttribute("success", "Hello, welcome " + name + "!");
+                
+                response.sendRedirect("Home");
+            }
+            else {
+                session.setAttribute("errors", "Username or password is invalid!");
+                response.sendRedirect("Login");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

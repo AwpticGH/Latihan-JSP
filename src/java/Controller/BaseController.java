@@ -16,9 +16,9 @@ import java.sql.SQLException;
  * @author rafih
  */
 public class BaseController {
-        DBConnection conn = new DBConnection();
-    
-        public ResultSet get(String sql) {
+    DBConnection conn = new DBConnection();
+
+    public ResultSet get(String sql) {
         try{
             Connection con = conn.open();
             

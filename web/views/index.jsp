@@ -38,8 +38,8 @@
         <!-- Begin page content -->
         <main class="flex-shrink-0">
           <div class="container">
-            <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.</p>
+                <h1 class="mt-5">Hello, <%= request.getSession(true).getAttribute("name") %></h1>
+                <p class="lead">Welcome to the inventory app! You are logged in using username: <strong><%= request.getSession().getAttribute("username") %></strong></p>
             <div class="row pt-5">
                 <div class="col-6">
                     <form action="Home" method="GET">
@@ -74,7 +74,7 @@
                                 <tr>
                                     <td><%= rs.getString("id")%></td>
                                     <td><%= rs.getString("name")%></td>
-                                    <td><%= rs.getString("product_type")%></td>
+                                    <td><%= rs.getString(8)%></td>
                                     <td><%= rs.getString("stock")%></td>
                                     <td>
                                         <form action="Delete?id=<%= rs.getString("id") %>" method="POST"

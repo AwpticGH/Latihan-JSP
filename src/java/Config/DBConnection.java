@@ -17,10 +17,10 @@ public class DBConnection {
     public Connection open() {
         
         try {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://127.0.0.1:3306/latihanjsp";
-        con = DriverManager.getConnection(url, "root", "");
-        return con;
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://127.0.0.1:3306/latihanjsp";
+            con = DriverManager.getConnection(url, "root", "");
+            return con;
         }
         catch(Exception e) {
             System.out.println(e);

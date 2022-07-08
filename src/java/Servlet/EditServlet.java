@@ -85,7 +85,7 @@ public class EditServlet extends HttpServlet {
 
 
             if (res) {
-                response.sendRedirect("index");
+                response.sendRedirect("Home");
             }
 
         } catch (Exception e) {

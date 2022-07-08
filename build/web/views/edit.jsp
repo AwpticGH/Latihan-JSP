@@ -29,7 +29,7 @@
         <%
             String id = request.getParameter("id");
             if (id == null || id.equals("")) {
-                response.sendRedirect("index");
+                response.sendRedirect("Home");
             }
 
             ProductController pc = new ProductController();
@@ -37,8 +37,10 @@
             
             System.out.println(rs);
             
+            String type = rs.getString("product_type");
+            
             if (!rs.isBeforeFirst()) {
-                response.sendRedirect("index");
+                response.sendRedirect("Home");
             }
             
         %>
@@ -51,7 +53,7 @@
                 <p class="lead">Edit produk <%= rs.getString("name")  %> pada sistem aplikasi produk</p>
                 <div class="row pt-5">
                     <div class="col-12">
-                        <form method="POST" action="edit">
+                        <form method="POST" action="Edit">
                             <input type="hidden" name="id" value="<%= rs.getString("id")%>" />
                             <div class="mb-3">
                                 <label class="form-label">Nama Produk</label>
@@ -62,16 +64,13 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jenis Produk</label>
-                                <select class="form-select" aria-label="Default select example" name="type" value="<%= rs.getString("type")%>" required>
-                                    <option value="Alat Mandi" 
-                                            <%= rs.getString("product_type") == "Alat Mandi" ? "selected" : ""%>
-                                            >Alat Mandi</option>
-                                    <option value="Alat Bersih-bersih"
-                                            <%= rs.getString("product_type") == "Alat Bersih-bersih" ? "selected" : ""%>
-                                            >Alat Bersih-bersih</option>
-                                    <option value="Alat Makan"
-                                            <%= rs.getString("product_type") == "Alat Makan" ? "selected" : ""%>
-                                            >Alat Makan</option>
+                                <select class="form-select" aria-label="Default select example" name="type" required>
+                                    <option value="<%= rs.getString("product_type") == "Alat Mandi"%>"                                            
+                                            ><%= rs.getString("product_type")%></option>
+                                    <option value="<%= rs.getString("product_type") == "Alat Bersih-bersih"%>"                                            
+                                            ><%= rs.getString("product_type")%></option>
+                                    <option value="<%= rs.getString("product_type") == "Alat Makan"%>" selected
+                                            ><%= rs.getString("product_type") == type%></option>
                                 </select>
                             </div>
                             <div class="mb-3">

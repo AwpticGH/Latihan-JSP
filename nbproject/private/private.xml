@@ -4,20 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Servlet/IndexServlet.java</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Controller/BaseController.java</file>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/web/views/create.jsp</file>
+            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Servlet/LoginServlet.java</file>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Servlet/EditServlet.java</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Servlet/DeleteServlet.java</file>
+            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/web/views/login.jsp</file>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/web/views/edit.jsp</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Servlet/CreateServlet.java</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/web/views/index.jsp</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Helper/StringHelper.java</file>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Controller/ProductController.java</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/build/web/views/index.jsp</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Model/ProductModel.java</file>
             <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Query/ProductQuery.java</file>
-            <file>file:/C:/Rafi/CCIT/2SE1/Quarter%202/Java%20Web%20Tutorial/WebApplication1/src/java/Config/DBConnection.java</file>
         </group>
     </open-files>
 </project-private>

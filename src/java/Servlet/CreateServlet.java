@@ -65,6 +65,7 @@ public class CreateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         try {
             String name = request.getParameter("name");
             String type = request.getParameter("type");
